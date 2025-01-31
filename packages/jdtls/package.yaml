@@ -1,4 +1,3 @@
----
 name: jdtls
 description: Java language server.
 homepage: https://github.com/eclipse/eclipse.jdt.ls
@@ -8,36 +7,33 @@ languages:
   - Java
 categories:
   - LSP
-
 source:
-  id: pkg:generic/eclipse/eclipse.jdt.ls@v1.43.0
+  id: pkg:generic/eclipse/eclipse.jdt.ls@v1.36.0
   download:
-    - target: [darwin_x64, darwin_arm64]
+    - target:
+        - darwin_x64
+        - darwin_arm64
       files:
-        jdtls.tar.gz: https://github.com/nvim-java/release-jdtls/releases/download/{{ version | strip_prefix "v" }}/jdtls.tar.gz
+        jdtls.tar.gz: https://download.eclipse.org/jdtls/milestones/1.36.0/jdt-language-server-1.36.0-202405301306.tar.gz
       config: config_mac/
-
-    - target: [linux_x64, linux_x86]
+    - target:
+        - linux_x64
+        - linux_x86
       files:
-        jdtls.tar.gz: https://github.com/nvim-java/release-jdtls/releases/download/{{ version | strip_prefix "v" }}/jdtls.tar.gz
+        jdtls.tar.gz: https://download.eclipse.org/jdtls/milestones/1.36.0/jdt-language-server-1.36.0-202405301306.tar.gz
       config: config_linux/
-
     - target: linux_arm64
       files:
-        jdtls.tar.gz: https://github.com/nvim-java/release-jdtls/releases/download/{{ version | strip_prefix "v" }}/jdtls.tar.gz
+        jdtls.tar.gz: https://download.eclipse.org/jdtls/milestones/1.36.0/jdt-language-server-1.36.0-202405301306.tar.gz
       config: config_linux_arm/
-
     - target: win
       files:
-        jdtls.tar.gz: https://github.com/nvim-java/release-jdtls/releases/download/{{ version | strip_prefix "v" }}/jdtls.tar.gz
+        jdtls.tar.gz: https://download.eclipse.org/jdtls/milestones/1.36.0/jdt-language-server-1.36.0-202405301306.tar.gz
       config: config_win/
-
 schemas:
   lsp: vscode:https://raw.githubusercontent.com/redhat-developer/vscode-java/master/package.json
-
 bin:
   jdtls: python:bin/jdtls
-
 share:
   jdtls/plugins/: plugins/
-  jdtls/config/: "{{source.download.config}}"
+  jdtls/config/: '{{source.download.config}}'
